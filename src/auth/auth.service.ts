@@ -25,7 +25,7 @@ export class AuthService {
       const salt = await genSalt();
       registerDTO.password = await hash(registerDTO.password, salt);
 
-      return await this.prismaService.user.create({ data: registerDTO });
+      await this.prismaService.user.create({ data: registerDTO });
     } catch (e) {
       if (e instanceof Prisma.PrismaClientKnownRequestError) {
         if (e.code === 'P2002') {

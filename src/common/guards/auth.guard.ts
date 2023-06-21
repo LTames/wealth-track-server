@@ -5,6 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { Prisma } from '@prisma/client';
 import { Request } from 'express';
 
 @Injectable()
@@ -18,7 +19,11 @@ export class AuthGuard implements CanActivate {
     if (!token) throw new UnauthorizedException();
 
     try {
-      const payload = await this.jwtService.verify(token, {
+      const payload = await this.jwtService.verifyAsync<
+        Prisma.UserGetPayload<{
+          select: { [K in keyof Required<Prisma.UserSelect>]: true };
+        }>
+      >(token, {
         secret: process.env.JWT_SECRET,
       });
 
