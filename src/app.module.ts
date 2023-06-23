@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { CommonModule } from './common/common.module';
 import { JwtModule } from '@nestjs/jwt';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { JwtModule } from '@nestjs/jwt';
       global: true,
       secret: process.env.JWT_SECRET,
     }),
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
