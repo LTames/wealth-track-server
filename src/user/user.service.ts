@@ -9,10 +9,12 @@ import { genSaltSync, hashSync } from 'bcryptjs';
 export class UserService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  public findUserByUniqueField(whereInput: Prisma.UserWhereUniqueInput) {
-    return this.prismaService.user.findUnique({
+  public async findUserByUniqueField(whereInput: Prisma.UserWhereUniqueInput) {
+    const { password, ...user } = await this.prismaService.user.findUnique({
       where: whereInput,
     });
+
+    return user;
   }
 
   public updateUser(updateUserDTO: UpdateUserDTO, userId: string) {
