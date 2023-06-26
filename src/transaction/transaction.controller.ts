@@ -9,13 +9,14 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/common/guards/auth.guard';
 import { UpdateTransactionDTO } from './dto/update-transaction.dto';
 import { CreateTransactionDTO } from './dto/create-transaction.dto';
 import { TransactionService } from './transaction.service';
 import { DeleteTransactionsDTO } from './dto/delete-transactions.dto';
 
+@ApiBearerAuth()
 @UseGuards(AuthGuard)
 @ApiTags('Transactions')
 @Controller('transactions')

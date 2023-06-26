@@ -9,10 +9,11 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from 'src/common/guards/auth.guard';
 import { UserService } from './user.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UpdateUserPasswordDTO } from './dto/update-user-password.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
 
+@ApiBearerAuth()
 @ApiTags('User')
 @UseGuards(AuthGuard)
 @Controller('user')
