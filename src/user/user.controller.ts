@@ -37,7 +37,6 @@ export class UserController {
     updateUserPasswordDTO: UpdateUserPasswordDTO,
     @Req() request,
   ) {
-    console.log(updateUserPasswordDTO);
     return this.userService.updateUserPassword(
       updateUserPasswordDTO,
       request.user.id,
