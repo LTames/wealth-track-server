@@ -6,7 +6,7 @@ import {
 import { PrismaService } from 'src/core/services/prisma/prisma.service';
 import { RegisterDTO } from './dto/register.dto';
 import { Prisma } from '@prisma/client';
-import { UserAlreadyExistsException } from 'src/common/exceptions/userAlreadyExistsException';
+import { UserAlreadyExistsException } from '../common/exceptions/userAlreadyExistsException';
 import { genSalt, hash, compare } from 'bcryptjs';
 import { LoginDTO } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
