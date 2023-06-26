@@ -17,12 +17,6 @@ function addSwagger(app: INestApplication) {
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.enableCors({
-    origin: '*',
-    allowedHeaders: '*',
-    credentials: true,
-  });
-
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
