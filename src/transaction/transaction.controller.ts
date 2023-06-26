@@ -17,9 +17,9 @@ import { TransactionService } from './transaction.service';
 import { DeleteTransactionsDTO } from './dto/delete-transactions.dto';
 
 @ApiBearerAuth()
-@UseGuards(AuthGuard)
 @ApiTags('Transactions')
 @Controller('transactions')
+@UseGuards(AuthGuard)
 export class TransactionController {
   constructor(private readonly transactionService: TransactionService) {}
 

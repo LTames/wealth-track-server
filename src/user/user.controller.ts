@@ -15,8 +15,8 @@ import { UpdateUserDTO } from './dto/update-user.dto';
 
 @ApiBearerAuth()
 @ApiTags('User')
-@UseGuards(AuthGuard)
 @Controller('user')
+@UseGuards(AuthGuard)
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
