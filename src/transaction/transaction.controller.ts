@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { AuthGuard } from 'src/common/guards/auth.guard';
+import { AuthGuard } from '../common/guards/auth.guard';
 import { UpdateTransactionDTO } from './dto/update-transaction.dto';
 import { CreateTransactionDTO } from './dto/create-transaction.dto';
 import { TransactionService } from './transaction.service';
