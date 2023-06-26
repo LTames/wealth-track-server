@@ -10,7 +10,7 @@ import {
 import { AuthGuard } from 'src/common/guards/auth.guard';
 import { UserService } from './user.service';
 import { ApiTags } from '@nestjs/swagger';
-import { updateUserPasswordDTO } from './dto/update-user-password.dto';
+import { UpdateUserPasswordDTO } from './dto/update-user-password.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
 
 @ApiTags('User')
@@ -34,7 +34,7 @@ export class UserController {
   @Patch('/password')
   public updateUserPassword(
     @Body()
-    updateUserPasswordDTO: updateUserPasswordDTO,
+    updateUserPasswordDTO: UpdateUserPasswordDTO,
     @Req() request,
   ) {
     console.log(updateUserPasswordDTO);

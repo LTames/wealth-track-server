@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/core/services/prisma/prisma.service';
 import { UpdateUserDTO } from './dto/update-user.dto';
-import { updateUserPasswordDTO } from './dto/update-user-password.dto';
-import { genSalt, genSaltSync, hashSync } from 'bcryptjs';
+import { UpdateUserPasswordDTO } from './dto/update-user-password.dto';
+import { genSaltSync, hashSync } from 'bcryptjs';
 
 @Injectable()
 export class UserService {
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   public updateUserPassword(
-    { newPassword }: updateUserPasswordDTO,
+    { newPassword }: UpdateUserPasswordDTO,
     userId: string,
   ) {
     const salt = genSaltSync();
