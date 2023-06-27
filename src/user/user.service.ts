@@ -10,10 +10,13 @@ export class UserService {
   constructor(private readonly prismaService: PrismaService) {}
 
   public async findUserByUniqueField(whereInput: Prisma.UserWhereUniqueInput) {
-    const { password, ...user } = await this.prismaService.user.findUnique({
+    const result = await this.prismaService.user.findUnique({
       where: whereInput,
     });
 
+    if (!result) return result;
+
+    const { password, ...user } = result;
     return user;
   }
 
