@@ -15,14 +15,7 @@ function addSwagger(app: INestApplication) {
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-
-  app.enableCors({
-    origin: 'https://wealth-track-client.vercel.app',
-    allowedHeaders: '*',
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    credentials: true,
-  });
+  const app = await NestFactory.create(AppModule, { cors: false });
 
   app.useGlobalPipes(
     new ValidationPipe({
