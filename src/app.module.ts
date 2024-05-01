@@ -5,7 +5,6 @@ import { CoreModule } from './core/core.module';
 import { CommonModule } from './common/common.module';
 import { JwtModule } from '@nestjs/jwt';
 import { TransactionModule } from './transaction/transaction.module';
-import { AppController } from './app/app.controller';
 
 @Module({
   imports: [
@@ -19,7 +18,7 @@ import { AppController } from './app/app.controller';
     }),
     TransactionModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}
